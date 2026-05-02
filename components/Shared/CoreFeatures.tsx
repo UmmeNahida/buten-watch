@@ -125,9 +125,9 @@ export const CoreFeatures = () => {
 
           {/* Watch image */}
           <div className="flex-1 flex justify-center">
-            <div className="relative w-72 h-72 md:w-96 md:h-96">
+            <div className="relative w-72 h-72 md:w-96 md:h-96 animate-float">
               <Image
-                src="/images/watch-1.png"
+                src="/images/watch-2.png"
                 alt="Smart watch product"
                 fill
                 className="object-contain drop-shadow-2xl"
