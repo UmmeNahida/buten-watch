@@ -4,6 +4,7 @@ import { About } from "@/components/Shared/About";
 import { Features } from "@/components/Shared/Features";
 import { DemoVideo } from "@/components/Shared/DemoVideo";
 import { CoreFeatures } from "@/components/Shared/CoreFeatures";
+import { WhyChoose } from "@/components/Shared/WhyChoose";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Features />
       <DemoVideo />
       <CoreFeatures />
+      <WhyChoose />
     </>
   );
 }
