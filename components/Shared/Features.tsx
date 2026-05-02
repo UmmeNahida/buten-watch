@@ -153,7 +153,7 @@ export const Features = () => {
               className="flex flex-col items-center text-center gap-4 group"
             >
               {/* Icon circle */}
-              <div className="w-16 h-16 rounded-full bg-white shadow-md flex items-center justify-center text-blue-600 transition-colors duration-300 group-hover:bg-blue-600 group-hover:text-white">
+              <div className="w-16 h-16 rounded-full bg-white drop-shadow-lg flex items-center justify-center text-blue-600 transition-colors duration-300 group-hover:bg-blue-600 group-hover:text-white">
                 {feature.icon}
               </div>
               <h3 className="text-base font-bold text-gray-900">
