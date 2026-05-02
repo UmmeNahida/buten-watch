@@ -10,7 +10,6 @@ const navLinks = [
   "Features",
   "Product",
   "Reviews",
-  "Faq",
   "Contact",
 ];
 
