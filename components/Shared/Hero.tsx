@@ -2,7 +2,10 @@ import Image from "next/image";
 
 export const Hero = () => {
   return (
-    <section className="relative min-h-screen bg-white overflow-hidden flex items-center pt-16">
+    <section
+      id="home"
+      className="relative min-h-screen bg-white overflow-hidden flex items-center pt-16"
+    >
       {/* Banner background */}
       <div className="absolute inset-0 z-0">
         <Image

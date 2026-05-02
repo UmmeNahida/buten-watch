@@ -15,11 +15,32 @@ const navLinks = [
 
 export const Header = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const sectionIds = navLinks.map((l) => l.toLowerCase());
+    const observers: IntersectionObserver[] = [];
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) setActiveSection(id);
+        },
+        { rootMargin: "-40% 0px -55% 0px", threshold: 0 },
+      );
+      observer.observe(el);
+      observers.push(observer);
+    });
+
+    return () => observers.forEach((o) => o.disconnect());
   }, []);
 
   return (
@@ -46,19 +67,27 @@ export const Header = () => {
 
         {/* Nav links */}
         <nav className="hidden md:flex items-center gap-7">
-          {navLinks.map((link) => (
-            <Link
-              key={link}
-              href={`#${link.toLowerCase()}`}
-              className={`text-sm font-medium transition-colors ${
-                scrolled
-                  ? "text-gray-500 hover:text-gray-900"
-                  : "text-white/90 hover:text-white"
-              } ${link === "Home" ? (scrolled ? "text-gray-900" : "text-white") : ""}`}
-            >
-              {link}
-            </Link>
-          ))}
+          {navLinks.map((link) => {
+            const id = link.toLowerCase();
+            const isActive = activeSection === id;
+            return (
+              <Link
+                key={link}
+                href={`#${id}`}
+                className={`text-sm font-medium transition-colors ${
+                  isActive
+                    ? scrolled
+                      ? "text-blue-600"
+                      : "text-blue-900"
+                    : scrolled
+                      ? "text-gray-500 hover:text-blue-600"
+                      : "text-white/90 hover:text-white"
+                }`}
+              >
+                {link}
+              </Link>
+            );
+          })}
         </nav>
 
         {/* CTA */}
