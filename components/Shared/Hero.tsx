@@ -56,7 +56,7 @@ export const Hero = () => {
               src="/images/watch-1.png"
               alt="Smart Watch product"
               fill
-              className="object-contain drop-shadow-2xl"
+              className="object-contain drop-shadow-2xl animate-float"
               loading="eager"
             />
           </div>
